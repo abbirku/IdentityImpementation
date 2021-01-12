@@ -3,3 +3,7 @@
 ################################################################################
 
 /IdentityImplementation/.vs/IdentityImplementation/v16
+/IdentityImplementation/Core/bin/Debug/netcoreapp3.1
+/IdentityImplementation/Core/obj
+/IdentityImplementation/Infrastructure/bin/Debug/netcoreapp3.1
+/IdentityImplementation/Infrastructure/obj
