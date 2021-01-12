@@ -10,3 +10,5 @@
 /IdentityImplementation/.vs/IdentityImplementation/DesignTimeBuild
 /IdentityImplementation/Membership/bin/Debug/netcoreapp3.1
 /IdentityImplementation/Membership/obj
+/IdentityImplementation/Web/bin/Debug/netcoreapp3.1
+/IdentityImplementation/Web/obj
