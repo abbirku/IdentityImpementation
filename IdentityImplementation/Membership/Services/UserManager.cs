@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Demo.Membership.Entities;
+using Membership.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Demo.Membership.Services
+namespace Membership.Services
 {
     public class UserManager
         : UserManager<ApplicationUser>

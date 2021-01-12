@@ -1,20 +1,18 @@
-﻿using Infrastructure.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Context
 {
-    public interface IWorkerContext
+    public interface IInfrastructureDbContext
     {
-        DbSet<Company> Companies { get; set; }
-        DbSet<StockExchange> StockExchanges { get; set; }
+
     }
 
-    public class WorkerContext : DbContext, IWorkerContext
+    public class InfrastructureDbContext : DbContext, IInfrastructureDbContext
     {
         private string _connectionString;
         private string _migrationAssemblyName;
 
-        public WorkerContext(string connectionString, string migrationAssemblyName)
+        public InfrastructureDbContext(string connectionString, string migrationAssemblyName)
         {
             _connectionString = connectionString;
             _migrationAssemblyName = migrationAssemblyName;
@@ -34,16 +32,8 @@ namespace Infrastructure.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Company>()
-                .HasKey(e => e.Id);
-
-            builder.Entity<StockExchange>()
-                .HasOne(e => e.Company)
-                .WithMany(e => e.StockExchanges)
-                .HasForeignKey(e => e.CompanyId);
+            
         }
 
-        public DbSet<Company> Companies { get; set; }
-        public DbSet<StockExchange> StockExchanges { get; set; }
     }
 }

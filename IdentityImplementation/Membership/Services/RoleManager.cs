@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Demo.Membership.Entities;
+using Membership.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
-namespace Demo.Membership.Services
+namespace Membership.Services
 {
     public class RoleManager
         : RoleManager<ApplicationRole>

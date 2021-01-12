@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 
-namespace Demo.Membership.Entities
+namespace Membership.Entities
 {
     public class ApplicationRole : IdentityRole<Guid>
     {

@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Identity;
 
-namespace Demo.Membership.Entities
+namespace Membership.Entities
 {
     public class ApplicationUserClaim
         : IdentityUserClaim<Guid>
