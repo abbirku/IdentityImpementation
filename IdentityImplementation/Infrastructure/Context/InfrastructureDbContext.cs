@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Infrastructure.Entities;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace Infrastructure.Context
 {
     public interface IInfrastructureDbContext
     {
-
+        public IList<Products> Products { get; set; }
     }
 
     public class InfrastructureDbContext : DbContext, IInfrastructureDbContext
@@ -32,8 +34,10 @@ namespace Infrastructure.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            
+            builder.Entity<Products>()
+                   .HasKey(x => x.Id);
         }
 
+        public IList<Products> Products { get; set; }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using Infrastructure.Context;
+using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Infrastructure.UnitOfWorks;
 
 namespace Infrastructure
@@ -20,16 +22,19 @@ namespace Infrastructure
             builder.RegisterType<InfrastructureDbContext>()
                    .WithParameter("connectionString", _connectionString)
                    .WithParameter("migrationAssemblyName", _migrationAssemblyName)
-                   .SingleInstance();
+                   .InstancePerLifetimeScope();
 
             //Registering repositories
-            
+            builder.RegisterType<ProductRepository>().As<IProductRepository>()
+                .InstancePerLifetimeScope();
 
             //Registering UnitOfWorks
-            builder.RegisterType<WorkerUnitOfWork>().As<IWorkerUnitOfWork>()
-                .SingleInstance();
+            builder.RegisterType<InfrastructureUnitOfWork>().As<IInfrastructureUnitOfWork>()
+                .InstancePerLifetimeScope();
 
             //Registering services
+            builder.RegisterType<ProductService>().As<IProductService>()
+                .InstancePerLifetimeScope();
 
             base.Load(builder);
         }

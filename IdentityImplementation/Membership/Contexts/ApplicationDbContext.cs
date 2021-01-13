@@ -12,5 +12,11 @@ namespace Membership.Contexts
             : base(options)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<ApplicationRole>(e => e.HasData(new SeedData().Roles));
+            base.OnModelCreating(builder);
+        }
     }
 }

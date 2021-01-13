@@ -105,6 +105,7 @@ namespace Web.Controllers
             return View(model);
         }
 
+        [HttpPost]
         public async Task<IActionResult> Login(ApplicationLoginModel model, string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
@@ -137,6 +138,21 @@ namespace Web.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout(string returnUrl = null)
+        {
+            await _signInManager.SignOutAsync();
+            _logger.LogInformation("User logged out.");
+            if (returnUrl != null)
+            {
+                return LocalRedirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }
